@@ -1,0 +1,5 @@
+string table    # 테이블 선택
+string action   # e.g. "insert", "update", "select", "delete"
+string data     # JSON 형태
+---
+string result   # 실행 결과
