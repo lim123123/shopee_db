@@ -1,0 +1,23 @@
+allergy_info = allergy_info_id(INT), nuts(BOOLEAN), milk(BOOLEAN), seafood(BOOLEAN), soy(BOOLEAN), peach(BOOLEAN), gluten(BOOLEAN), eggs(BOOLEAN)
+
+location = location_id(INT), location_x(FLOAT), location_y(FLOAT), location_theta(FLOAT), aruco_marker(INT)
+
+shelf = shelf_id(INT), location_id(INT), shelf_name(VARCHAR(50))
+
+warehouse = warehouse_id(INT), location_id(INT), warehouse_name(VARCHAR(50))
+
+section = section_id(INT), shelf_id(INT), location_id(INT), section_name(VARCHAR(50))
+
+admin = admin_id(INT), user_id(VARCHAR(20)), password(VARCHAR(256)), name(VARCHAR(10))
+
+customer = customer_id(INT), user_id(VARCHAR(20)), password(VARCHAR(256)), name(VARCHAR(10)), gender(BOOLEAN), age(INT), address(VARCHAR(256)), allergy_info_id(INT), is_vegan(BOOLEAN)
+
+product = product_id(INT), barcode(VARCHAR(100)), name(VARCHAR(50)), quantity(INT), price(INT), discount_rate(INT), category(VARCHAR(10)), allergy_info_id(INT), is_vegan_friendly(BOOLEAN), section_id(INT), warehouse_id(INT), length(INT), width(INT), height(INT), weight(INT), fragile(BOOLEAN), img_path(VARCHAR(50))
+
+order = order_id(INT), customer_id(INT), start_time(DATETIME), end_time(DATETIME), order_status(TINYINT), failure_reason(VARCHAR(50)), created_at(DATETIME)
+
+order_item = order_item_id(INT), order_id(INT), product_id(INT), quantity(INT), created_at(DATETIME)
+
+robot = robot_id(INT), robot_type(TINYINT), robot_status(TINYINT)
+
+robot_history = robot_history_id(INT), robot_id(INT), history_type(TINYINT), order_item_id(INT), is_complete(BOOLEAN), failure_reason(VARCHAR(50)), active_duration(INT), created_at(DATETIME)
